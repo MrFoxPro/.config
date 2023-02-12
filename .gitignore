@@ -9,6 +9,7 @@
 !.bash_profile
 !.bashrc
 !.hstr_favorites
+!user-dirs.dirs
 !.config/i3
 !.config/sway
 !.config/bspwm

@@ -11,6 +11,10 @@ hn=$([ "$HOSTNAME" != "foxpro-arch" ] && echo "@\n" || echo "")
 PS1="\u${hn}:$blue\w$reset$ "
 
 alias ls='ls --color=auto'
+# xdg user dirs
+set -a
+source ~/.config/user-dirs.dirs
+set +a
 
 # pnpm
 export PNPM_HOME="/home/foxpro/.local/share/pnpm"
