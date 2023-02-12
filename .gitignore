@@ -1,0 +1,35 @@
+/*
+!.gitignore
+!.config
+.config/*
+
+!.gtkrc-2.0
+
+# General
+!.bash_profile
+!.bashrc
+!.hstr_favorites
+!.config/i3
+!.config/sway
+!.config/bspwm
+!.config/picom
+!.config/mimeapps.list
+!.xinitrc
+!.xinit2rc
+
+# Apps
+!.config/alacritty
+!.config/nushell
+.config/nushell/history.txt
+!.config/nano
+!.config/helix
+
+!.config/chrome-dev-flags.conf
+
+
+# Appearance
+!.config/i3wsr
+!.config/rofi
+!.config/gtk-3.0
+!.config/flavours
+!.config/starship.toml
