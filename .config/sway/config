@@ -1,0 +1,31 @@
+include ~/.config/wm.conf
+
+exec set XDG_CURRENT_DESKTOP=sway
+
+# Input
+input "2522:14008:COMPANY__USB_DEVICE" {
+
+}
+input "type:keyboard" {
+    xkb_layout us,ru
+    xkb_variant ,
+   #xkb_options grp:ctrl_shift_toggle
+		xkb_options grp:win_space_toggle
+}
+
+# Behaviour
+floating_modifier $mod normal
+
+# Bindings
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+#bar {
+#    position top
+#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
+include /etc/sway/config.d/*

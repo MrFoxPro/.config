@@ -1,0 +1,88 @@
+# Configuration for flavours
+# https://github.com/Misterio77/flavours
+#
+# This file should contain a [[items]] section for each application you want themed
+# You can also set a shell (outside items) on which to run hooks
+# Check flavours repository for more information and examples
+
+
+# Explanation and default values for keys:
+
+# # Through which shell command hooks will run. The command will be replaced in '{}'
+# shell = "sh -c '{}'"
+#
+# [[items]]
+# # File to inject to, supports tilde and env var expansion. required
+# file = "~/.config/example"
+# # Template to use. required
+# template = "example"
+#
+# # Subtemplate to use
+subtemplate = "default"
+# # Should we rewrite the entire file, instead of using the above delimiters?
+# rewrite = false
+# # Command to execute after injecting (goes through shell)
+# hook = ""
+# # Whether this hook should be executed when flavours is ran with lightweight flag
+# light = true
+
+# start = "<REPLACE>"
+# end = "</REPLACE>"
+
+[[item]]
+file = "~/.config/i3/wm.conf"
+template = "i3"
+subtemplate = "colors"
+start = "# colors::start"
+end = "# colors::end"
+
+[[item]]
+file = "~/.config/i3/wm.conf"
+template = "i3"
+subtemplate = "client-properties"
+start = "# client-properties::start"
+end = "# client-properties::end"
+
+[[item]]
+file = "~/.config/i3/wm.conf"
+template = "i3"
+subtemplate = "bar-colors"
+start = "# bar-colors::start"
+end = "# bar-colors::end"
+
+# [[item]]
+# file = "~/.config/i3status-rust/config.toml"
+# template = "i3status-rust"
+# start = "# default::start"
+# end = "# default::end"
+
+[[item]]
+file = "~/.config/i3status/config"
+template = "i3status"
+start = "# default::start"
+end = "# default::end"
+
+
+[[item]]
+file = "~/.config/helix/themes/foxpro.toml"
+template = "helix"
+rewrite = true
+
+[[item]]
+file = "~/.config/alacritty/alacritty.yml"
+template = "alacritty"
+subtemplate = "default-256"
+start = "# default-256::start"
+end = "# default-256::end"
+
+[[item]]
+file = "~/.vscode/extensions/golf1052.base16-generator-1.19.1/themes/base16-default-dark.json"
+template = "vscode"
+subtemplate = "default"
+rewrite = true
+
+[[item]]
+file = "~/.config/rofi/themes/colors.rasi"
+template = "rofi"
+subtemplate = "colors"
+rewrite = true

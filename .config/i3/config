@@ -1,0 +1,30 @@
+include ~/.config/i3/wm.conf
+
+# Autostart
+exec --no-startup-id set XDG_CURRENT_DESKTOP=i3
+exec --no-startup-id /usr/bin/prime-offload
+exec --no-startup-id setxkbmap -model pc104 -layout us,ru -option grp:caps_toggle,grp_led:caps
+## mouse
+exec xinput --set-prop pointer:"COMPANY  USB DEVICE  " "libinput Accel Speed" -0.7
+## touchpadh
+exec xinput --set-prop pointer:"ETD2303:00 04F3:3083 Touchpad" "libinput Accel Speed" 0
+exec xinput --set-prop pointer:"ETD2303:00 04F3:3083 Touchpad" "libinput Tapping Enabled" 1
+
+exec --no-startup-id nm-applet
+exec_always --no-startup-id picom
+exec_always --no-startup-id /usr/bin/i3wsr
+exec_always --no-startup-id feh --bg-scale ./pics/bb3d56a956ebe6be9b4c7592f4b8c882.jpeg
+
+# i3 doesn't import variables
+set $mod Mod4
+
+# Behaviour
+tiling_drag modifier titlebar
+
+# Bindings
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
