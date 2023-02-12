@@ -26,10 +26,11 @@
 
 !.config/chrome-dev-flags.conf
 
-
 # Appearance
 !.config/i3wsr
 !.config/rofi
 !.config/gtk-3.0
 !.config/flavours
 !.config/starship.toml
+
+!readme.md
