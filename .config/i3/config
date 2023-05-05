@@ -3,12 +3,7 @@ include ~/.config/i3/wm.conf
 # Autostart
 exec --no-startup-id set XDG_CURRENT_DESKTOP=i3
 exec --no-startup-id /usr/bin/prime-offload
-exec --no-startup-id setxkbmap -model pc104 -layout us,ru -option grp:caps_toggle,grp_led:caps
-## mouse
-exec xinput --set-prop pointer:"COMPANY  USB DEVICE  " "libinput Accel Speed" -0.7
-## touchpadh
-exec xinput --set-prop pointer:"ETD2303:00 04F3:3083 Touchpad" "libinput Accel Speed" 0
-exec xinput --set-prop pointer:"ETD2303:00 04F3:3083 Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id ~/x11-input.sh
 
 exec --no-startup-id nm-applet
 exec_always --no-startup-id picom

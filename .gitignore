@@ -16,7 +16,7 @@
 !.config/picom
 !.config/mimeapps.list
 !.xinitrc
-!.xinit2rc
+!scripts
 
 # Apps
 !.config/alacritty

@@ -1,21 +1,22 @@
 # Nushell Environment Config File
 
 def create_left_prompt [] {
-    let path_segment = if (is-admin) {
-        $"(ansi red_bold)($env.PWD)"
-    } else {
-        $"(ansi green_bold)($env.PWD)"
-    }
+    # let conf = {
+    #     user_color: if is-admin { ansi red } else { ansi white }
+    #     pwd: if is-admin { $env.PWD } else { $env.PWD | str replace -a $env.HOME '~' }
+    # }
+    let user_color = if is-admin { ansi red } else { ansi white }
+    let pwd = if is-admin { $env.PWD } else { $env.PWD | str replace -a $env.HOME '~' }
 
-    $path_segment
+   $"(ansi reset)($user_color)($env.USER):(ansi blue)($pwd)(ansi reset)"
 }
 
 def create_right_prompt [] {
     let time_segment = ([
-        (date now | date format '%m/%d/%Y %r')
+        (date now | date format '%R %d.%m')
     ] | str join)
 
-    $time_segment
+    $"(ansi blue)($time_segment)"
 }
 
 # Use nushell functions to define your right and left prompt
@@ -26,7 +27,7 @@ let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 # the state of the prompt
 let-env PROMPT_INDICATOR = { "$ " }
 let-env PROMPT_INDICATOR_VI_INSERT = { ": " }
-let-env PROMPT_INDICATOR_VI_NORMAL = { "$ " }
+let-env PROMPT_INDICATOR_VI_NORMAL = { ">" }
 let-env PROMPT_MULTILINE_INDICATOR = { "::: " }
 
 # Specifies how environment variables are:

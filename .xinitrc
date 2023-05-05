@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "[~/.config/.xinitrc]: This is tty${XDG_VTNR}"
+echo "$0 $1"
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -20,7 +21,8 @@ if [ -f "$userresources" ]; then
 	xrdb -merge "$userresources"
 fi
 
-if [ -f "$usermodmap" ]; then xmodmap "$usermodmap"
+if [ -f "$usermodmap" ]; then
+	xmodmap "$usermodmap"
 fi
 
 # start some nice programs
@@ -31,5 +33,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 	done
 	unset f
 fi
+
 /usr/bin/prime-offload
-exec i3
+exec "$1"
